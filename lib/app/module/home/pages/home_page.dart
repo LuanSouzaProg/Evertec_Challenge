@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 
-import '../components/button_theme_component.dart';
-import '../components/header_component.dart';
 import '../components/info_current_covid_component.dart';
+import '../components/button_theme_component.dart';
 import '../components/info_device_component.dart';
+import '../components/header_component.dart';
+import '../components/logout_component.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -49,15 +50,12 @@ class _HomePageState extends State<HomePage> {
           Positioned(
             top: MediaQuery.sizeOf(context).height / 2.10,
             right: 16,
-            child: ButtonThemeComponent(),
+            child: const ButtonThemeComponent(),
           ),
           Positioned(
             bottom: MediaQuery.sizeOf(context).height / 1.1,
             right: 40,
-            child: InkWell(
-              onTap: () {},
-              child: const Icon(Icons.logout_rounded),
-            ),
+            child: const LogoutComponent(),
           ),
         ],
       ),

@@ -1,5 +1,7 @@
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../bloc/login_bloc.dart';
 import '../pages/login_page.dart';
 
 class LoginModule extends Module {
@@ -7,17 +9,16 @@ class LoginModule extends Module {
   void routes(r) {
     r.child(
       '/',
-      child: (context) => const LoginPage(),
-      // child: (context) {
-      //   HomeBloc homeBloc = Modular.get();
+      child: (context) {
+        LoginBloc loginBloc = Modular.get();
 
-      //   return MultiBlocProvider(
-      //     providers: [
-      //       BlocProvider.value(value: homeBloc),
-      //     ],
-      //     child: const HomePage(),
-      //   );
-      // },
+        return MultiBlocProvider(
+          providers: [
+            BlocProvider.value(value: loginBloc),
+          ],
+          child: const LoginPage(),
+        );
+      },
     );
   }
 }

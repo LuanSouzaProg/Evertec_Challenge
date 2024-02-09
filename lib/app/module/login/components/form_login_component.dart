@@ -1,12 +1,18 @@
+import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter/material.dart';
 
+import '../bloc/login_bloc.dart';
 import 'item_form_component.dart';
 
-class FormLoginComponent extends StatelessWidget {
-  FormLoginComponent({super.key});
-  final TextEditingController typeController = TextEditingController();
-  final TextEditingController numberController = TextEditingController();
-  final TextEditingController passwordController = TextEditingController();
+class FormLoginComponent extends StatefulWidget {
+  const FormLoginComponent({super.key});
+
+  @override
+  State<FormLoginComponent> createState() => _FormLoginComponentState();
+}
+
+class _FormLoginComponentState extends State<FormLoginComponent> {
+  LoginBloc loginBloc = Modular.get();
 
   @override
   Widget build(BuildContext context) {
@@ -14,19 +20,19 @@ class FormLoginComponent extends StatelessWidget {
       children: [
         const SizedBox(height: 8),
         ItemFormComponent(
-          controller: typeController,
+          controller: loginBloc.typeController,
           title: 'Tipo Documento:',
           needObscureText: false,
         ),
         const SizedBox(height: 8),
         ItemFormComponent(
-          controller: numberController,
+          controller: loginBloc.numberController,
           title: 'Número Documento:',
           needObscureText: false,
         ),
         const SizedBox(height: 8),
         ItemFormComponent(
-          controller: passwordController,
+          controller: loginBloc.passwordController,
           title: 'Contraseña',
           needObscureText: true,
         ),
