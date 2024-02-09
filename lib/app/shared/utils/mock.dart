@@ -1,8 +1,8 @@
 List<Map<String, String>> mockData = [
   {
     'type': 'email',
-    'number': '9876543210',
-    'password': 'password123',
+    'number': '123456',
+    'password': '123456',
   },
   {
     'type': 'phone',

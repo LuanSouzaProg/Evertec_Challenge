@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 
 import '../components/info_current_covid_component.dart';
 import '../components/button_theme_component.dart';
@@ -61,7 +62,9 @@ class _HomePageState extends State<HomePage> {
       ),
       floatingActionButton: FloatingActionButton(
         backgroundColor: Theme.of(context).colorScheme.primary,
-        onPressed: () {},
+        onPressed: () {
+          Modular.to.pushNamed('/more_details');
+        },
         child: const Icon(Icons.add),
       ),
     );

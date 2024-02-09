@@ -22,3 +22,11 @@ String formatNumber(int number) {
   final formatter = NumberFormat('#,##0', 'pt_BR');
   return formatter.format(number);
 }
+
+String dateFormaterRegion(String date) {
+  DateTime dateTime = DateFormat('M/d/yyyy').parse(date);
+
+  String dateFormat = DateFormat('dd/MM/yyyy').format(dateTime).toLowerCase();
+
+  return dateFormat;
+}
