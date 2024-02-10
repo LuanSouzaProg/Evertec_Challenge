@@ -1,9 +1,9 @@
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter/material.dart';
-import 'package:pay_smart_challenge/app/shared/utils/constraints.dart';
-import 'package:pay_smart_challenge/app/shared/utils/flag_mapper.dart';
 
+import '../../../shared/utils/constraints.dart';
+import '../../../shared/utils/flag_mapper.dart';
 import '../bloc/more_details_bloc.dart';
 
 class MoreDetailsPage extends StatefulWidget {
@@ -79,7 +79,7 @@ class _MoreDetailsPageState extends State<MoreDetailsPage> {
                                     ),
                                   ),
                                   Text(
-                                    dateFormaterRegion(
+                                    formatarData(
                                         list[index].lastUpdateEt ?? ''),
                                     style: const TextStyle(
                                       fontSize: 12,

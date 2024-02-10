@@ -23,10 +23,17 @@ String formatNumber(int number) {
   return formatter.format(number);
 }
 
-String dateFormaterRegion(String date) {
-  DateTime dateTime = DateFormat('M/d/yyyy').parse(date);
+String formatarData(String dataOriginal) {
+  RegExp regex = RegExp(r'(\d{1,2})/(\d{1,2})/(\d{4}) (\d{1,2}):(\d{2})');
+  RegExpMatch? match = regex.firstMatch(dataOriginal);
 
-  String dateFormat = DateFormat('dd/MM/yyyy').format(dateTime).toLowerCase();
+  if (match != null) {
+    int dia = int.parse(match.group(1) ?? '');
+    int mes = int.parse(match.group(2) ?? '');
+    int ano = int.parse(match.group(3) ?? '');
 
-  return dateFormat;
+    return '${mes.toString().padLeft(2, '0')}/${dia.toString().padLeft(2, '0')}/$ano';
+  } else {
+    return '';
+  }
 }
