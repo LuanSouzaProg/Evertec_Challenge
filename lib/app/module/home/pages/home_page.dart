@@ -63,7 +63,7 @@ class _HomePageState extends State<HomePage> {
       floatingActionButton: FloatingActionButton(
         backgroundColor: Theme.of(context).colorScheme.primary,
         onPressed: () {
-          Modular.to.pushNamed('/more_details');
+          Modular.to.pushNamed('/more_details_module');
         },
         child: const Icon(Icons.add),
       ),
