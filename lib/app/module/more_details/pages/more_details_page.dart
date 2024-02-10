@@ -2,8 +2,7 @@ import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter/material.dart';
 
-import '../../../shared/utils/constraints.dart';
-import '../../../shared/utils/flag_mapper.dart';
+import '../components/region_card_component.dart';
 import '../bloc/more_details_bloc.dart';
 
 class MoreDetailsPage extends StatefulWidget {
@@ -38,62 +37,8 @@ class _MoreDetailsPageState extends State<MoreDetailsPage> {
             return ListView.builder(
               itemCount: list.length,
               itemBuilder: (context, index) {
-                return Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 18)
-                      .copyWith(bottom: 12),
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: Theme.of(context).colorScheme.primaryContainer,
-                      border: Border.all(),
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Row(
-                            children: [
-                              CircleAvatar(
-                                backgroundImage: AssetImage(
-                                    'assets/imgs/flags/Flag_of_${FlagHelper.getFlag(
-                                  list[index].state ?? '',
-                                )}'),
-                              ),
-                              const SizedBox(width: 8),
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    list[index].name ?? '',
-                                    style: const TextStyle(
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  ),
-                                  Text(
-                                    formatNumber(list[index].positive ?? 0),
-                                    style: const TextStyle(
-                                      fontSize: 12,
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  ),
-                                  Text(
-                                    formatarData(
-                                        list[index].lastUpdateEt ?? ''),
-                                    style: const TextStyle(
-                                      fontSize: 12,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ],
-                          ),
-                          const Icon(Icons.arrow_forward_ios_rounded),
-                        ],
-                      ),
-                    ),
-                  ),
+                return RegionCardComponent(
+                  detailsRegionModel: list[index],
                 );
               },
             );
