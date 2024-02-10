@@ -14,6 +14,7 @@ import 'module/more_details/bloc/more_details_bloc.dart';
 import 'data/repositories/login/login_repository.dart';
 import 'domain/service/login/login_service_impl.dart';
 import 'domain/service/login/login_service.dart';
+import 'module/splash/module/splash_module.dart';
 import 'module/login/module/login_module.dart';
 import 'module/home/module/home_module.dart';
 import 'module/login/bloc/login_bloc.dart';
@@ -37,6 +38,10 @@ class AppModule extends Module {
   void routes(r) {
     r.module(
       '/',
+      module: SplashModule(),
+    );
+    r.module(
+      '/login_module',
       module: LoginModule(),
     );
     r.module(
