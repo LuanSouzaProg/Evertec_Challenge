@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter/material.dart';
 
 import '../../../shared/components/animated_component.dart';
+import '../../../shared/components/error_component.dart';
 import '../../../shared/components/loading_component.dart';
 import '../components/region_card_component.dart';
 import '../bloc/more_details_bloc.dart';
@@ -50,7 +51,7 @@ class _MoreDetailsPageState extends State<MoreDetailsPage> {
             );
           }
           if (state is MoreDetailErrorState) {
-            return Container();
+            return const ErrorComponent();
           }
           if (state is MoreDetailLoadingState) {
             return const LoadingComponent();
