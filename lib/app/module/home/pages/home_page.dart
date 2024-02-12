@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:flutter/material.dart';
 
 import '../components/info_current_covid_component.dart';
 import '../components/button_theme_component.dart';
@@ -21,20 +21,26 @@ class _HomePageState extends State<HomePage> {
       backgroundColor: Theme.of(context).colorScheme.background,
       body: Stack(
         children: [
-          Positioned(
+          Positioned.fill(
             top: MediaQuery.sizeOf(context).height / 2.15,
-            child: const InfoCurrentCovidComponent(),
+            child: const Align(
+              alignment: Alignment.center,
+              child: InfoCurrentCovidComponent(),
+            ),
           ),
-          Positioned(
+          Positioned.fill(
             top: MediaQuery.sizeOf(context).height / 3.5,
-            left: 1,
-            right: 1,
-            child: InfoDeviceComponent(),
+            child: const Align(
+              alignment: Alignment.topCenter,
+              child: InfoDeviceComponent(),
+            ),
           ),
-          Positioned(
-            bottom: MediaQuery.sizeOf(context).height / 2.25,
-            right: 16,
-            child: const HeaderComponent(),
+          Positioned.fill(
+            bottom: MediaQuery.sizeOf(context).height / 2.45,
+            child: const Align(
+              alignment: Alignment.centerLeft,
+              child: HeaderComponent(),
+            ),
           ),
           Positioned(
             bottom: MediaQuery.sizeOf(context).height / 1.2,
@@ -48,10 +54,13 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
           ),
-          Positioned(
+          Positioned.fill(
             top: MediaQuery.sizeOf(context).height / 2.10,
             right: 16,
-            child: const ButtonThemeComponent(),
+            child: const Align(
+              alignment: Alignment.topRight,
+              child: ButtonThemeComponent(),
+            ),
           ),
           Positioned(
             bottom: MediaQuery.sizeOf(context).height / 1.1,

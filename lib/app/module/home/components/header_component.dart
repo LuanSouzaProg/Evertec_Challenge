@@ -5,9 +5,10 @@ class HeaderComponent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 400,
-      child: Image.asset('assets/imgs/doctor_home.png'),
+    return Image.asset(
+      'assets/imgs/doctor_home.png',
+      height: 300,
+      width: 300,
     );
   }
 }

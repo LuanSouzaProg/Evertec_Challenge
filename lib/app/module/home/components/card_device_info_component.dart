@@ -1,4 +1,5 @@
 import 'package:device_info_plus/device_info_plus.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import '../../../shared/utils/constraints.dart';
@@ -55,7 +56,7 @@ class CardDeviceInfoComponent extends StatelessWidget {
                 ),
                 DeviceItemComponent(
                   title: 'Nombre del dispositivo',
-                  subtitle: info.board,
+                  subtitle: info.device,
                 ),
               ],
             ),
@@ -67,7 +68,7 @@ class CardDeviceInfoComponent extends StatelessWidget {
                 ),
                 DeviceItemComponent(
                   title: 'Tipo de dispositivo',
-                  subtitle: info.type,
+                  subtitle: _getAppBarTitle(),
                 ),
               ],
             ),
@@ -88,4 +89,13 @@ class CardDeviceInfoComponent extends StatelessWidget {
       ),
     );
   }
+
+  String _getAppBarTitle() => switch (defaultTargetPlatform) {
+        TargetPlatform.android => 'Android',
+        TargetPlatform.iOS => 'iOS',
+        TargetPlatform.linux => 'Linux',
+        TargetPlatform.windows => 'Windows',
+        TargetPlatform.macOS => 'MacOS',
+        TargetPlatform.fuchsia => 'Fuchsia',
+      };
 }
