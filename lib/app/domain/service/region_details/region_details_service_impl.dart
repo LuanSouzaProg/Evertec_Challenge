@@ -8,10 +8,6 @@ class RegionDetailsServiceImpl implements RegionDetailsService {
   RegionDetailsRepository regionDetailsRepository = Modular.get();
 
   @override
-  Future<ViewState> getMoreRegionDetails() =>
-      regionDetailsRepository.getMoreRegionDetails();
-
-  @override
   Future<ViewState> getRegionDetails(String state) =>
       regionDetailsRepository.getRegionDetails(state);
 }

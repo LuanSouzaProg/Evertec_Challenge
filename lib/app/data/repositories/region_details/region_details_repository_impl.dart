@@ -15,29 +15,7 @@ class RegionDetailsRepositoryImpl implements RegionDetailsRepository {
 
       var data = response.data;
 
-      var result = data
-          .map<DetailsRegionModel>(
-              (region) => DetailsRegionModel.fromMap(region))
-          .toList();
-
-      return Success(result);
-    } catch (e) {
-      return Failure(e.toString());
-    }
-  }
-
-  @override
-  Future<ViewState> getMoreRegionDetails() async {
-    try {
-      var response =
-          await dio.get('https://api.covidtracking.com/v1/states/current.json');
-
-      var data = response.data;
-
-      var result = data
-          .map<DetailsRegionModel>(
-              (region) => DetailsRegionModel.fromMap(region))
-          .toList();
+      var result = DetailsRegionModel.fromMap(data);
 
       return Success(result);
     } catch (e) {
