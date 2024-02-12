@@ -30,7 +30,7 @@ class _HomePageState extends State<HomePage> {
           ),
           Positioned.fill(
             top: MediaQuery.sizeOf(context).height / 3.5,
-            child: const Align(
+            child: Align(
               alignment: Alignment.topCenter,
               child: InfoDeviceComponent(),
             ),

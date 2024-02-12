@@ -3,6 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter/material.dart';
 
 import '../../../domain/models/current_covid_model.dart';
+import '../../../shared/components/error_component.dart';
+import '../../../shared/components/loading_component.dart';
 import '../../../shared/utils/constraints.dart';
 import 'covid_item_component.dart';
 import '../bloc/home_bloc.dart';
@@ -42,15 +44,11 @@ class _InfoCurrentCovidComponentState extends State<InfoCurrentCovidComponent> {
         bloc: homeBloc,
         builder: (context, state) {
           if (state is HomeLoadingState) {
-            return const Center(
-              child: CircularProgressIndicator(),
-            );
+            return const LoadingComponent();
           }
 
           if (state is HomeErrorState) {
-            return const Center(
-              child: Text('ERROR'),
-            );
+            return const ErrorComponent();
           }
 
           if (state is HomeSuccessState) {
