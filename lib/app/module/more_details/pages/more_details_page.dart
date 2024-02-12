@@ -2,6 +2,8 @@ import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter/material.dart';
 
+import '../../../shared/components/animated_component.dart';
+import '../../../shared/components/loading_component.dart';
 import '../components/region_card_component.dart';
 import '../bloc/more_details_bloc.dart';
 
@@ -14,6 +16,7 @@ class MoreDetailsPage extends StatefulWidget {
 
 class _MoreDetailsPageState extends State<MoreDetailsPage> {
   MoreDetailsBloc moreDetailsBloc = Modular.get();
+  double delay = 0.0;
 
   @override
   void initState() {
@@ -37,8 +40,11 @@ class _MoreDetailsPageState extends State<MoreDetailsPage> {
             return ListView.builder(
               itemCount: list.length,
               itemBuilder: (context, index) {
-                return RegionCardComponent(
-                  detailsRegionModel: list[index],
+                return AnimatedComponent(
+                  delay: delay + 0.2,
+                  child: RegionCardComponent(
+                    detailsRegionModel: list[index],
+                  ),
                 );
               },
             );
@@ -47,7 +53,7 @@ class _MoreDetailsPageState extends State<MoreDetailsPage> {
             return Container();
           }
           if (state is MoreDetailLoadingState) {
-            return Container();
+            return const LoadingComponent();
           }
 
           return Container();
