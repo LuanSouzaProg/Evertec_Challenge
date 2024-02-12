@@ -1,6 +1,7 @@
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:pay_smart_challenge/app/shared/components/error_component.dart';
 
 import '../../../shared/components/loading_component.dart';
 import '../components/details_component.dart';
@@ -42,7 +43,9 @@ class _RegionDetailsPageState extends State<RegionDetailsPage> {
               );
             }
 
-            if (state is RegionDetailsErrorState) {}
+            if (state is RegionDetailsErrorState) {
+              return const ErrorComponent();
+            }
 
             if (state is RegionDetailsLoadingState) {
               return const LoadingComponent();
