@@ -63,7 +63,7 @@ class _ButtonLoginComponentState extends State<ButtonLoginComponent> {
           bottom: 20,
         ),
         child: ButtonComponent(
-          onPressed: () {
+          onPressed: () async {
             if (loginBloc.typeController.text.isNotEmpty ||
                 loginBloc.numberController.text.isNotEmpty ||
                 loginBloc.passwordController.text.isNotEmpty) {

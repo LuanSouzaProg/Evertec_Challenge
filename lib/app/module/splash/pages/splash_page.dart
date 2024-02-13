@@ -1,3 +1,4 @@
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
@@ -14,9 +15,20 @@ class SplashPage extends StatefulWidget {
 
 class _SplashPageState extends State<SplashPage> {
   double _progressValue = 0.0;
+  String route = '';
 
   @override
   void initState() {
+    WidgetsBinding.instance.addPostFrameCallback((i) async {
+      var _prefs = await SharedPreferences.getInstance();
+
+      if (_prefs.getString('TOKEN') != null) {
+        route = '/home_module';
+      } else {
+        route = '/login_module';
+      }
+    });
+
     startProgress();
     super.initState();
   }
@@ -26,7 +38,7 @@ class _SplashPageState extends State<SplashPage> {
       setState(() {
         if (_progressValue >= 100.0) {
           timer.cancel();
-          Modular.to.pushReplacementNamed('/login_module');
+          Modular.to.pushReplacementNamed(route);
         } else {
           _progressValue += 1.0;
         }

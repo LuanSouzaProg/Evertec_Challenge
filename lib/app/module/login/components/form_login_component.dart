@@ -39,4 +39,12 @@ class _FormLoginComponentState extends State<FormLoginComponent> {
       ],
     );
   }
+
+  @override
+  void dispose() {
+    loginBloc.typeController.clear();
+    loginBloc.numberController.clear();
+    loginBloc.passwordController.clear();
+    super.dispose();
+  }
 }
