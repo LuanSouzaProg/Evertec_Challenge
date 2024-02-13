@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
-import 'package:pay_smart_challenge/app/shared/utils/state.dart';
 
 import '../../../domain/models/details_region_model.dart';
+import '../../../shared/utils/state.dart';
 import 'region_details_repository.dart';
 
 class RegionDetailsRepositoryImpl implements RegionDetailsRepository {

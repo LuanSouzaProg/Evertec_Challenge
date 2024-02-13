@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
-import 'package:pay_smart_challenge/app/domain/models/details_region_model.dart';
 
+import '../../../domain/models/details_region_model.dart';
 import '../../../shared/utils/state.dart';
 import 'more_details_repository.dart';
 

@@ -1,4 +1,4 @@
-# pay_smart_challenge
+# evertec_challenge
 
 A new Flutter project.
 

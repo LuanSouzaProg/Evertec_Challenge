@@ -1,8 +1,8 @@
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter/material.dart';
-import 'package:pay_smart_challenge/app/shared/components/error_component.dart';
 
+import '../../../shared/components/error_component.dart';
 import '../../../shared/components/loading_component.dart';
 import '../components/details_component.dart';
 import '../bloc/region_details_bloc.dart';

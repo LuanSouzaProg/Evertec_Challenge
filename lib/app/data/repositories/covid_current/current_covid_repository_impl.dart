@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
-import 'package:pay_smart_challenge/app/domain/models/current_covid_model.dart';
 
+import '../../../domain/models/current_covid_model.dart';
 import '../../../shared/utils/state.dart';
 import 'current_covid_repository.dart';
 

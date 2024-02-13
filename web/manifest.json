@@ -1,6 +1,6 @@
 {
-    "name": "pay_smart_challenge",
-    "short_name": "pay_smart_challenge",
+    "name": "evertec_challenge",
+    "short_name": "evertec_challenge",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
