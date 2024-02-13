@@ -13,9 +13,11 @@ String dateFormater(DateTime date) {
 }
 
 DateTime convertedDate(int date) {
-  DateTime convertedDate = DateTime.fromMillisecondsSinceEpoch(date);
+  String dataString = date.toString();
+  DateTime data = DateTime.parse(
+      '${dataString.substring(0, 4)}-${dataString.substring(4, 6)}-${dataString.substring(6, 8)}');
 
-  return convertedDate;
+  return data;
 }
 
 String formatNumber(int number) {
