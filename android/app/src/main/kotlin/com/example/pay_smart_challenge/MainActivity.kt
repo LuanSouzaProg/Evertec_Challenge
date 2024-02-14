@@ -1,4 +1,4 @@
-package com.example.pay_smart_challenge
+package com.example.evertec_challenge
 
 import io.flutter.embedding.android.FlutterActivity
 

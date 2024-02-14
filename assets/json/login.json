@@ -1,0 +1,14 @@
+[
+    {
+        "type": "email",
+        "number": "123456",
+        "password": "123456",
+        "token": "xntUTxKf9ZZDGxJNrRP5mIR5j0LZ1rT462282OK2T91p0UjFLIZ65cba691056f8"
+      },
+      {
+        "type": "email2",
+        "number": "1234567",
+        "password": "1234567",
+        "token": "LW903iDtVeXDupGwa2UMSMkVXguAVKLBMUIQm4pct1I8EHSl68K65cba697e1c9c"
+      }
+]

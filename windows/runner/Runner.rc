@@ -90,12 +90,12 @@ BEGIN
         BLOCK "040904e4"
         BEGIN
             VALUE "CompanyName", "com.example" "\0"
-            VALUE "FileDescription", "pay_smart_challenge" "\0"
+            VALUE "FileDescription", "evertec_challenge" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
-            VALUE "InternalName", "pay_smart_challenge" "\0"
+            VALUE "InternalName", "evertec_challenge" "\0"
             VALUE "LegalCopyright", "Copyright (C) 2024 com.example. All rights reserved." "\0"
-            VALUE "OriginalFilename", "pay_smart_challenge.exe" "\0"
-            VALUE "ProductName", "pay_smart_challenge" "\0"
+            VALUE "OriginalFilename", "evertec_challenge.exe" "\0"
+            VALUE "ProductName", "evertec_challenge" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END

@@ -3,7 +3,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter/material.dart';
 
 import '../../../domain/models/current_covid_model.dart';
+import '../../../shared/components/error_component.dart';
+import '../../../shared/components/loading_component.dart';
 import '../../../shared/utils/constraints.dart';
+import 'button_theme_component.dart';
 import 'covid_item_component.dart';
 import '../bloc/home_bloc.dart';
 
@@ -28,9 +31,7 @@ class _InfoCurrentCovidComponentState extends State<InfoCurrentCovidComponent> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 16).copyWith(top: 60),
-      height: MediaQuery.sizeOf(context).height,
-      width: MediaQuery.sizeOf(context).width,
+      padding: const EdgeInsets.symmetric(horizontal: 16).copyWith(top: 25),
       decoration: BoxDecoration(
         color: Theme.of(context).colorScheme.secondary,
         borderRadius: const BorderRadius.only(
@@ -42,15 +43,11 @@ class _InfoCurrentCovidComponentState extends State<InfoCurrentCovidComponent> {
         bloc: homeBloc,
         builder: (context, state) {
           if (state is HomeLoadingState) {
-            return const Center(
-              child: CircularProgressIndicator(),
-            );
+            return const LoadingComponent();
           }
 
           if (state is HomeErrorState) {
-            return const Center(
-              child: Text('ERROR'),
-            );
+            return const ErrorComponent();
           }
 
           if (state is HomeSuccessState) {
@@ -60,12 +57,18 @@ class _InfoCurrentCovidComponentState extends State<InfoCurrentCovidComponent> {
             return Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  'Fecha Recoleccíon Datos: ${dateFormater(date)}',
-                  style: TextStyle(
-                    fontSize: 12,
-                    color: Theme.of(context).colorScheme.onPrimary,
-                  ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      'Fecha Recoleccíon Datos: ${dateFormater(date)}',
+                      style: TextStyle(
+                        fontSize: 12,
+                        color: Theme.of(context).colorScheme.onPrimary,
+                      ),
+                    ),
+                    const ButtonThemeComponent()
+                  ],
                 ),
                 const SizedBox(height: 30),
                 Padding(

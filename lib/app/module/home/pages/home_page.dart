@@ -1,9 +1,9 @@
+import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter/material.dart';
 
-import '../components/button_theme_component.dart';
-import '../components/header_component.dart';
 import '../components/info_current_covid_component.dart';
 import '../components/info_device_component.dart';
+import '../components/logout_component.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -17,53 +17,44 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.background,
-      body: Stack(
-        children: [
-          Positioned(
-            top: MediaQuery.sizeOf(context).height / 2.15,
-            child: const InfoCurrentCovidComponent(),
+      appBar: AppBar(
+        title: Text(
+          'COVID-19',
+          style: TextStyle(
+            fontSize: 24,
+            fontWeight: FontWeight.bold,
+            color: Theme.of(context).colorScheme.onBackground,
           ),
-          Positioned(
-            top: MediaQuery.sizeOf(context).height / 3.5,
-            left: 1,
-            right: 1,
-            child: InfoDeviceComponent(),
+        ),
+        centerTitle: true,
+        actions: const [
+          Padding(
+            padding: EdgeInsets.only(right: 12),
+            child: LogoutComponent(),
           ),
-          Positioned(
-            bottom: MediaQuery.sizeOf(context).height / 2.25,
-            right: 16,
-            child: const HeaderComponent(),
-          ),
-          Positioned(
-            bottom: MediaQuery.sizeOf(context).height / 1.2,
-            right: 40,
-            child: Text(
-              'COVID-19',
-              style: TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-                color: Theme.of(context).colorScheme.onBackground,
-              ),
-            ),
-          ),
-          Positioned(
-            top: MediaQuery.sizeOf(context).height / 2.10,
-            right: 16,
-            child: ButtonThemeComponent(),
-          ),
-          Positioned(
-            bottom: MediaQuery.sizeOf(context).height / 1.1,
-            right: 40,
-            child: InkWell(
-              onTap: () {},
-              child: const Icon(Icons.logout_rounded),
+        ],
+      ),
+      body: CustomScrollView(
+        slivers: [
+          SliverFillRemaining(
+            child: Column(
+              children: [
+                const SizedBox(height: 10),
+                InfoDeviceComponent(),
+                const SizedBox(height: 20),
+                const Expanded(
+                  child: InfoCurrentCovidComponent(),
+                ),
+              ],
             ),
           ),
         ],
       ),
       floatingActionButton: FloatingActionButton(
         backgroundColor: Theme.of(context).colorScheme.primary,
-        onPressed: () {},
+        onPressed: () {
+          Modular.to.pushNamed('/more_details_module');
+        },
         child: const Icon(Icons.add),
       ),
     );
